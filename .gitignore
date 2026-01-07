@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Data files
+*.csv
+*.zip
+
+# Large generated files
+gdelt_events_raw.csv
