@@ -4,6 +4,5 @@ __pycache__/
 .venv/
 
 # Large data files
-*.csv
 *.zip
 gdelt_events_raw.csv
