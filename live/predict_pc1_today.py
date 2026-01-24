@@ -1,6 +1,12 @@
+import sys
+import os
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(PROJECT_ROOT)
+
 import pandas as pd
 import joblib
-from datetime import date
+
 from models.pc1_model_config import THRESHOLD, SIGN
 
 model = joblib.load("models/pc1_live_model.pkl")
