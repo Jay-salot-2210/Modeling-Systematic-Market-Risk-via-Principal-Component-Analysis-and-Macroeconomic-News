@@ -1,15 +1,22 @@
 import pandas as pd
+import os
 
-events = pd.read_csv("live_today_events_raw.csv", parse_dates=["Date"])
+events = pd.read_csv("live_today_events_raw.csv")
 
-daily = events.groupby("Date").agg(
-    total_events=("GLOBALEVENTID", "count"),
-    mean_tone=("AvgTone", "mean"),
-    total_mentions=("NumMentions", "sum")
+daily = events.groupby("date").agg(
+    total_events=("eventcode", "count"),
+    mean_tone=("avgtone", "mean"),
+    total_mentions=("nummentions", "sum")
 ).reset_index()
 
-daily = daily.sort_values("Date").iloc[-1:]
-
+daily = daily.sort_values("date").iloc[-1:]
 daily.to_csv("live_today_features.csv", index=False)
-print("saved live today features.csv ")
+
+history_file = "live_features_history.csv"
+if os.path.exists(history_file):
+    daily.to_csv(history_file, mode="a", header=False, index=False)
+else:
+    daily.to_csv(history_file, index=False)
+
+print("Live features updated")
 print(daily)
