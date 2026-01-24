@@ -1,0 +1,35 @@
+name: Daily PC1 Prediction
+
+on:
+  schedule:
+    - cron: "0 7 * * 1-5"   # Weekdays at 07:00 UTC
+  workflow_dispatch:
+
+jobs:
+  run-pc1-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run daily PC1 pipeline
+      run: |
+        python live/run_daily_pipeline.py
+
+    - name: Upload prediction results
+      uses: actions/upload-artifact@v4
+      with:
+        name: pc1-daily-output
+        path: |
+          live_today_features.csv
+          live_predictions_log.csv
