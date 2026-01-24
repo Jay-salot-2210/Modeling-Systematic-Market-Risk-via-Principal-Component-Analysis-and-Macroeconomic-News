@@ -8,7 +8,7 @@ sys.path.append(PROJECT_ROOT)
 from models.pc1_model_config import THRESHOLD, SIGN
 
 features = pd.read_csv("live_today_features.csv")
-MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "pc1_live_model.pkl")
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "pc1_event_model.pkl")
 
 print("Loading model from:", MODEL_PATH)
 model = joblib.load(MODEL_PATH)
