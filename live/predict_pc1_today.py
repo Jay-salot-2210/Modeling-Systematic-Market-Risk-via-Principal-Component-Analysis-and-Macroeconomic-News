@@ -1,32 +1,27 @@
 import sys
 import os
-
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(PROJECT_ROOT)
-
 import pandas as pd
 import joblib
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(PROJECT_ROOT)
 from models.pc1_model_config import THRESHOLD, SIGN
 
-model = joblib.load("models/pc1_live_model.pkl")
+features = pd.read_csv("live_today_features.csv")
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "pc1_live_model.pkl")
 
-X_today = pd.read_csv("live_today_features.csv")
-X_today = X_today[["total_events", "mean_tone", "total_mentions"]]
+print("Loading model from:", MODEL_PATH)
+model = joblib.load(MODEL_PATH)
 
-prob = model.predict_proba(X_today)[:, 1][0]
-signal = SIGN * (1 if prob >= THRESHOLD else -1)
+proba = model.predict_proba(features)[0][1]
+direction = SIGN if proba >= THRESHOLD else -SIGN
 
-out = pd.DataFrame([{
-    "date": date.today(),
-    "pc1_probability": prob,
-    "pc1_direction": signal
-}])
+result = pd.DataFrame({
+    "date": features["date"],
+    "pc1_probability": [proba],
+    "pc1_direction": [direction]
+})
 
-log_file = "live_predictions_log.csv"
-if os.path.exists(log_file):
-    out.to_csv(log_file, mode="a", header=False, index=False)
-else:
-    out.to_csv(log_file, index=False)
+result.to_csv("live_predictions_log.csv", index=False)
 
-print(out)
+print("Saved live_predictions_log.csv")
