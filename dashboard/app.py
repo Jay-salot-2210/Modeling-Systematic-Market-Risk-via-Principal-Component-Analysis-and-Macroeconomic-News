@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 st.set_page_config(
     page_title="Market Risk Monitor (PC1)",
@@ -8,7 +9,17 @@ st.set_page_config(
 )
 
 st.title("📊 Systematic Market Risk Dashboard")
-st.caption("PCA-based Market Mode Prediction using Global News")
+st.caption("Live PC1 market mode prediction using global news")
+
+DATA_PATH = "data/daily_pc1_dashboard.csv"
+
+if not os.path.exists(DATA_PATH):
+    st.warning("⏳ No daily prediction data available yet.")
+    st.info(
+        "The dashboard will automatically update once the daily "
+        "GitHub Actions pipeline runs and commits data."
+    )
+    st.stop()
 
 df = pd.read_csv("data/daily_pc1_dashboard.csv")
 
