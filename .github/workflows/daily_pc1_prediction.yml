@@ -26,10 +26,23 @@ jobs:
       run: |
         python live/run_daily_pipeline.py
 
-    - name: Upload prediction results
+    - name: Explain PC1 prediction (feature attribution)
+      run: |
+        python analysis/explain_pc1_today.py
+    
+    - name: Commit daily dashboard data
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add data/daily_pc1_dashboard.csv
+        git commit -m "Update daily PC1 dashboard data" || echo "No changes"
+        git push
+
+    - name: Upload daily PC1 outputs
       uses: actions/upload-artifact@v4
       with:
         name: pc1-daily-output
         path: |
           live_today_features.csv
           live_predictions_log.csv
+          pc1_feature_explanation_today.csv
