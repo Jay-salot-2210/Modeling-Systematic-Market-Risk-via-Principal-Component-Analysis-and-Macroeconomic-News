@@ -8,7 +8,7 @@ class SP500Spider(scrapy.Spider):
 
     def parse(self, response):
         table = response.xpath('//table[@id="constituents"]')
-        rows = table.xpath('.//tr')[1:]  # Skip header row
+        rows = table.xpath('.//tr')[1:]
 
         for row in rows:
             symbol = row.xpath('.//td[1]/a/text()').get()

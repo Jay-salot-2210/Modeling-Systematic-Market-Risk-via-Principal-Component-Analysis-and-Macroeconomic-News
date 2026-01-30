@@ -7,16 +7,16 @@
   <img src="https://img.shields.io/badge/Status-Production--Ready-success" />
 </p>
 
-# 📊 Modeling Systematic Market Risk via PCA and Macroeconomic News
+# Modeling Systematic Market Risk via PCA and Macroeconomic News
 
 A full-stack quantitative finance project that **detects, predicts, and visualizes systematic market risk** using **Principal Component Analysis (PCA)** and **global macroeconomic news**.
 
-🔗 **Live Dashboard:**  
-👉 https://pc1-market-risk-by-jay.streamlit.app/
+**Live Dashboard:**  
+https://pc1-market-risk-by-jay.streamlit.app/
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 When hundreds of stocks move together, it is rarely coincidence — it is **systematic risk**.
 
@@ -29,29 +29,29 @@ This project:
 
 ---
 
-## 🧠 Key Concepts
+## Key Concepts
 
-- 📉 Eigen-Portfolios
-- 📈 Market Mode (PC1)
-- 📰 News-Driven Market Prediction
-- 🤖 Machine Learning + Finance
-- ⚙️ End-to-End Deployment
+- Eigen-Portfolios
+- Market Mode (PC1)
+- News-Driven Market Prediction
+- Machine Learning + Finance
+- End-to-End Deployment
 
 ---
 
-## 🗂️ Data Sources
+## Data Sources
 
 | Data | Source |
 |----|----|
-Equity Prices | Yahoo Finance |
-Macroeconomic News | GDELT Project |
-Sentiment & Events | GDELT v2 |
+| Equity Prices | Yahoo Finance |
+| Macroeconomic News | GDELT Project |
+| Sentiment & Events | GDELT v2 |
 
-📌 GDELT monitors **global news in real time** across thousands of sources.
+GDELT monitors **global news in real time** across thousands of sources.
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Languages
 - Python
@@ -70,7 +70,7 @@ Sentiment & Events | GDELT v2 |
 
 ---
 
-## ⚙️ System Architecture
+## System Architecture
 Market Prices ──► PCA ──► PC1 Labels
 
 Macroeconomic News ──► Feature Engineering
@@ -87,7 +87,7 @@ Streamlit Dashboard
 
 ---
 
-## 🕒 Automation 
+## Automation 
 
 - Runs **automatically every weekday**
 - Scheduled using **GitHub Actions (IST aligned)**
@@ -96,12 +96,12 @@ Streamlit Dashboard
 - Predicts PC1 direction
 - Updates dashboard data
 
-✅ Fully cloud-based  
-✅ No local server required
+Fully cloud-based  
+No local server required
 
 ---
 
-## 📊 Dashboard Features
+## Dashboard Features
 
 The Streamlit dashboard displays:
 
@@ -111,12 +111,12 @@ The Streamlit dashboard displays:
 - Feature impact explanation
 - Trend visualization
 
-🔗 **Dashboard:**  
+**Dashboard:**  
 https://pc1-market-risk-by-jay.streamlit.app/
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Programming Language
 - Python
@@ -137,7 +137,7 @@ https://pc1-market-risk-by-jay.streamlit.app/
 
 ---
 
-## 📈 Key Results
+## Key Results
 
 - PC1 explains **~37%** of total market variance
 - Macroeconomic news shows **predictive power**
@@ -146,9 +146,9 @@ https://pc1-market-risk-by-jay.streamlit.app/
 
 ---
 
-## 🔮 Future Scope (Recruiter-Focused)
+## Future Scope (Recruiter-Focused)
 
-🚀 High-impact extensions:
+High-impact extensions:
 - LLM-based news embeddings (FinBERT / GPT)
 - Multi-factor prediction (PC2, PC3)
 - Intraday market risk forecasting
@@ -158,7 +158,7 @@ https://pc1-market-risk-by-jay.streamlit.app/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Jay Salot**  
 Quantitative Finance & Machine Learning  
@@ -166,4 +166,4 @@ DAU, Gandhinagar(formerly known as DA-IICT)
 
 ---
 
-⭐ If you find this project interesting, feel free to **star the repository**!
+If you find this project interesting, feel free to **star the repository**!

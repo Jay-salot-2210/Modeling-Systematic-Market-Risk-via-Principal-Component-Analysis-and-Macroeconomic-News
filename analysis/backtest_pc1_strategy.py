@@ -23,7 +23,7 @@ model = Pipeline([
 model.fit(X_train, y.iloc[:split])
 
 probs = model.predict_proba(X_test)[:, 1]
-signals = (probs > 0.55).astype(int) * 2 - 1  # optimized threshold
+signals = (probs > 0.55).astype(int) * 2 - 1
 
 strategy_returns = (-signals) * pc1_returns.loc[X_test.index].values.squeeze()
 

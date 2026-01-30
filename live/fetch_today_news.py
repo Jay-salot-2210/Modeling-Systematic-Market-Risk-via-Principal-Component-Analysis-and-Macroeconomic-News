@@ -42,12 +42,10 @@ except Exception as e:
     print("⚠️ Live news fetch failed:", e)
     print("Using fallback macro values")
 
-    # Fallback values (historical averages)
     total_events = 35000
     mean_tone = 71.0
     total_mentions = 12000
 
-# Save features
 features = pd.DataFrame([{
     "date": today,
     "total_events": total_events,
