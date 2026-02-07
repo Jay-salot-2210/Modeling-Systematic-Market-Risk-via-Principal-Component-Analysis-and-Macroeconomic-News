@@ -4,7 +4,7 @@ from datetime import datetime
 
 today = datetime.utcnow().strftime("%Y-%m-%d")
 
-URL = "https://api.gdeltproject.org/api/v2/events/search"
+URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 params = {
     "query": "economy OR inflation OR interest rates",
     "mode": "ArtList",
