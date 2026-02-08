@@ -1,0 +1,51 @@
+name: Daily PC1 Prediction
+
+on:
+  schedule:
+    - cron: "0 3 * * 1-5"  # 3:00 AM UTC = 8:30 AM IST (before market opens)  
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-pc1-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run daily PC1 pipeline
+      run: |
+        python live/run_daily_pipeline.py
+
+    - name: Explain PC1 prediction (feature attribution)
+      run: |
+        python analysis/explain_pc1_today.py
+    
+    - name: Commit daily dashboard data
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add data/daily_pc1_dashboard.csv
+        git commit -m "Update daily PC1 dashboard data" || echo "No changes"
+        git push
+
+    - name: Upload daily PC1 outputs
+      uses: actions/upload-artifact@v4
+      with:
+        name: pc1-daily-output
+        path: |
+          live_today_features.csv
+          live_predictions_log.csv
+          pc1_feature_explanation_today.csv

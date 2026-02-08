@@ -1,0 +1,8 @@
+2026-02-08 11:54:36,180 - INFO - Requesting TimelineVol with params: {'query': '(India OR NIFTY OR Sensex) (economy OR inflation OR GDP)', 'mode': 'TimelineVol', 'format': 'json'}
+2026-02-08 11:54:40,247 - INFO - Timeline length: 1 for TimelineVol
+2026-02-08 11:54:40,247 - INFO - Detected nested structure for TimelineVol
+2026-02-08 11:54:40,247 - INFO - Found valid value (last): 0.6318
+2026-02-08 11:54:41,250 - INFO - Requesting TimelineTone with params: {'query': '(India OR NIFTY OR Sensex) (economy OR inflation OR GDP)', 'mode': 'TimelineTone', 'format': 'json'}
+2026-02-08 11:54:44,081 - INFO - Timeline length: 1 for TimelineTone
+2026-02-08 11:54:44,081 - INFO - Detected nested structure for TimelineTone
+2026-02-08 11:54:44,081 - INFO - Found valid value (last): 0.1845

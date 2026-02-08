@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.pyc
+.venv/
+
+# Large data files (keep locally, don't push to GitHub)
+*.zip
+gdelt_events_raw.csv
+all_prices.csv
+return_matrix.csv
+pc1_returns.csv
+pc1_labels.csv
+events_pc1_dataset.csv
+.git_bin/
