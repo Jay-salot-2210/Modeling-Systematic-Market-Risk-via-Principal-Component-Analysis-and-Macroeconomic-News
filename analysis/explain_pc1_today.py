@@ -53,8 +53,10 @@ if not os.path.exists("data"):
 if os.path.exists(dashboard_path):
     existing = pd.read_csv(dashboard_path)
     updated = pd.concat([existing, row], ignore_index=True)
+    # Deduplicate: Keep only the latest entry for each date + feature combo
+    updated = updated.drop_duplicates(subset=["date", "feature"], keep="last")
 else:
     updated = row
 
 updated.to_csv(dashboard_path, index=False)
-print("Updated daily_pc1_dashboard.csv")
+print("Updated daily_pc1_dashboard.csv (with deduplication)")
